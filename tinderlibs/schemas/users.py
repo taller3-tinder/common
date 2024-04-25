@@ -31,7 +31,7 @@ class RegisterUser(BaseModel):
     photo: str = Field(description="base64 codified photo.",
                        example='base64-photo')
     genre: Genre = Field(example="Other")
-    preffered_genre: Genre = Field(example="Woman")
+    prefered_genre: Genre = Field(example="Woman")
     tags: List[Tags] = Field(example=["University", "Sport", "Music"])
 
     @validator('date_of_birth')
