@@ -4,9 +4,9 @@ import boto3
 
 load_dotenv()
 MIDDLEWARE_HOST = os.getenv("MIDDLEWARE_HOST")  # Ex: http://localhost:4566
-AWS_REGION = os.getenv("AWS_REGION")          # Ex: 'us-east-1'
-AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")  # Ex: 'dummy'
-AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY")  # Ex: 'dummy'
+# AWS_REGION = os.getenv("AWS_REGION")          # Ex: 'us-east-1'
+# AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY")  # Ex: 'dummy'
+# AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY")  # Ex: 'dummy'
 QUEUE_NAME = os.getenv("QUEUE_NAME")  # Ex: my-queue
 TOPIC_PUBLISH = os.getenv("SNS_TOPIC")  # Ex: my-topic
 
@@ -14,17 +14,17 @@ TOPIC_PUBLISH = os.getenv("SNS_TOPIC")  # Ex: my-topic
 class QueuesMiddleware:
     def __init__(self):
         self.sqs = boto3.client('sqs',
-                                endpoint_url=MIDDLEWARE_HOST,
-                                region_name=AWS_REGION,
-                                aws_access_key_id=AWS_ACCESS_KEY,
-                                aws_secret_access_key=AWS_SECRET_KEY)
+                                endpoint_url=MIDDLEWARE_HOST)
+                                # region_name=AWS_REGION,
+                                # aws_access_key_id=AWS_ACCESS_KEY,
+                                # aws_secret_access_key=AWS_SECRET_KEY)
 
         if TOPIC_PUBLISH:
             self.sns = boto3.client('sns',
-                                    endpoint_url=MIDDLEWARE_HOST,
-                                    region_name=AWS_REGION,
-                                    aws_access_key_id=AWS_ACCESS_KEY,
-                                    aws_secret_access_key=AWS_SECRET_KEY)
+                                    endpoint_url=MIDDLEWARE_HOST)
+                                    # region_name=AWS_REGION,
+                                    # aws_access_key_id=AWS_ACCESS_KEY,
+                                    # aws_secret_access_key=AWS_SECRET_KEY)
 
         self.listening = False
         if QUEUE_NAME:
