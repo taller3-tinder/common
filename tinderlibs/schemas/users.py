@@ -25,7 +25,6 @@ class Tags(Enum):
 
 class RegisterUser(BaseModel):
     name: str = Field(example="Camile")
-    surname: str = Field(example="Buena Onda")
     description: str = Field(example="I like having fun!")
     date_of_birth: str = Field(example="03-03-2000")
     photo: str = Field(description="base64 codified photo.",
