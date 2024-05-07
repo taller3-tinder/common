@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Date, Integer
-from model import Base
+from tinderlibs.model import Base
 
 class User(Base):
 	__tablename__ = "users"

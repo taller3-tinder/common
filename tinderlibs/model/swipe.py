@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Date, ForeignKey
-from model import Base
-from model.user import User
+from tinderlibs.model import Base
+from tinderlibs.model.user import User
 
 class Swipe(Base):
 	__tablename__ = "swipes"
