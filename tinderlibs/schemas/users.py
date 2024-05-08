@@ -32,6 +32,8 @@ class RegisterUser(BaseModel):
     genre: Genre = Field(example="Other")
     prefered_genre: Genre = Field(example="Woman")
     tags: List[Tags] = Field(example=["University", "Sport", "Music"])
+    prefered_age_range_min: int = Field(example="22")
+    prefered_age_range_max: int = Field(example="26")
 
     @validator('date_of_birth')
     def validate_date_of_birth(cls, v):
